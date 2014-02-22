@@ -1,0 +1,27 @@
+//IE8+ supported absolute center 
+@mixin abscenter{
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+@mixin center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin link($color:#2980b9,$hover:0.8){
+	a{
+		color: $color;
+		&:hover{
+			@if $hover == 0.8 {
+				color: lighten($color,20%);
+			} @else {
+				color: $hover;
+			}
+		}
+	}
+}

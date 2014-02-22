@@ -1,0 +1,57 @@
+/***********************************************************************************/
+/*                                      Custom                                     */
+/***********************************************************************************/
+/*global*/
+::-webkit-input-placeholder { color: $placeholder-color; }
+:-moz-placeholder           { color: $placeholder-color; }
+::-moz-placeholder          { color: $placeholder-color; }
+:-ms-input-placeholder      { color: $placeholder-color; }
+:placeholder                { color: $placeholder-color; }
+
+input{
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body{
+	color: #000;
+	font: normal 14px/1.4 $body-fontfamily;
+	width: 100%;
+}
+a{
+	color: $a-link;
+}
+a:hover{
+	color: $a-hover;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.center {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/*eglobal*/
+/*header*/
+
+
+
+/*eheader*/
+/*body*/
+
+
+
+/*ebody*/
+/*footer*/
+
+
+
+/*efooter*/
+
