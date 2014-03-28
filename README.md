@@ -7,6 +7,8 @@ ysass
 
 目标：提供一个合理的框架结构以及实用工具，简化重构项目流程，方便前端重构项目开发。
 
+文章：[构建初级前端页面重构开发环境](http://yujiangshui.com/build-your-frontend-workflow/)
+
 ##一、目录结构
 
 	.
