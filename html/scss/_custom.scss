@@ -8,7 +8,10 @@
 :-ms-input-placeholder      { color: $placeholder-color; }
 :placeholder                { color: $placeholder-color; }
 
-input{
+input[type=submit],
+input[type=reset],
+input[type=text],
+input[type=button]{
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -36,7 +39,9 @@ a:hover{
 	margin-left: auto;
 	margin-right: auto;
 }
-
+div{
+	color: #333233;
+}
 
 /*eglobal*/
 /*header*/

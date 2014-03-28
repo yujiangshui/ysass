@@ -1,4 +1,166 @@
-//IE8+ supported absolute center 
+// ==============
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// p {
+//   @include font-size(14px)
+// }
+
+// ===================
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+// .sidebar {
+//   width: 60%
+//   float: left;
+//   margin: 0 2% 0 0;
+//   @include bp-small {
+//     width: 100%;
+//     float: none;
+//     margin: 0;
+//   }
+// }
+
+// ==================
+
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+// body {
+//   @include background-image('pattern');
+// }
+// SVG background images with PNG and retina fallback
+
+// ==============
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }  
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }  
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+// @include keyframes(slide-down) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+
+// =====================
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// a {
+//   color: gray;
+//   @include transition(color .3s ease);
+//   &:hover {
+//     color: black;
+//   }
+// }
+
+// ===================
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// .faded-text {
+//   @include opacity(0.8);
+// }
+
+// ==================
+
+// %visuallyhidden {
+//   margin: -1px;
+//   padding: 0;
+//   width: 1px;
+//   height: 1px;
+//   overflow: hidden;
+//   clip: rect(0 0 0 0);
+//   clip: rect(0, 0, 0, 0);
+//   position: absolute;
+// }
+
+// <button class="mobile-navigation-trigger">
+//   <b class="visually-hidden">Open the navigation</b>
+//   <img src="img/mobile-navigation-icon.svg">
+// </button>
+// .visually-hidden {
+//   @extend %visuallyhidden;
+// }
+
+// ======================
+
 @mixin abscenter{
 	position: absolute;
 	margin: auto;
