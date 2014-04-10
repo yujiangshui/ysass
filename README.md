@@ -1,7 +1,7 @@
 ysass
 =====
 
-基于 Sass 的简单高效的前端页面重构项目框架。
+基于 Sass 的简单高效的前端页面重构项目框架。 
 
 采用了中文排版优化的 [typo](https://github.com/sofish/typo.css)  。
 
