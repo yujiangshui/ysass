@@ -8,10 +8,13 @@
 :-ms-input-placeholder      { color: $placeholder-color; }
 :placeholder                { color: $placeholder-color; }
 
-input[type=submit],
-input[type=reset],
-input[type=text],
-input[type=button]{
+input[type="text"],
+input[type="reset"],
+input[type="submit"],
+input[type="email"],
+input[type="tel"],
+textarea,
+input[type="button"]{
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -40,12 +43,46 @@ a:hover{
 	margin-left: auto;
 	margin-right: auto;
 }
+img{
+	max-width: 100%;
+	height: auto;
+}
+.section-wrap{
+	position: relative;
+}
 .section{
 	width: 96%;
 	max-width: 960px;
 	margin: 0 auto;
 	@extend .clearfix;
 	position: relative;
+}
+.form-row{
+	@extend .clearfix;
+	padding-bottom: 10px;
+}
+input{
+	margin: 0;
+}
+.input-text,
+.textarea{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 8px;
+}
+.btn{
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	&.btn-green{
+
+	}
+	&.btn-submit{
+
+	}
 }
 
 /*eglobal*/
