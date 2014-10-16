@@ -7,13 +7,6 @@ var isMobile = {
 	any:         function() { return (isMobile.android() || isMobile.blackberry() || isMobile.ios() || isMobile.windows()); }
 };
 
-function getUrlParam( name ) {
-	var reg = new RegExp( "(^|&\?)" + name + "=([^&]*)(&|$)" );
-	var r = window.location.href.match(reg);
-	if( r != null )
-		return unescape(r[2]);
-	return null;
-}
 
 //jQuery 功能代码编辑区
 ;(function($) {
