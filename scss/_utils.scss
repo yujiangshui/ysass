@@ -1,12 +1,12 @@
 // ==============
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return $remSize * 1rem;
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
 }
 
 @mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+	font-size: $size;
+	font-size: calculateRem($size);
 }
 
 // p {
@@ -16,21 +16,21 @@
 // ===================
 
 @mixin bp-large {
-  @media only screen and (max-width: 60em) {
-    @content;
-  }
+	@media only screen and (max-width: 60em) {
+		@content;
+	}
 }
 
 @mixin bp-medium {
-  @media only screen and (max-width: 40em) {
-    @content;
-  }
+	@media only screen and (max-width: 40em) {
+		@content;
+	}
 }
 
 @mixin bp-small {
-  @media only screen and (max-width: 30em) {
-    @content;
-  }
+	@media only screen and (max-width: 30em) {
+		@content;
+	}
 }
 
 // .sidebar {
@@ -50,17 +50,17 @@ $image-path: '../img' !default;
 $fallback-extension: 'png' !default;
 $retina-suffix: '@2x';
 @mixin background-image($name, $size:false){
-    background-image: url(#{$image-path}/#{$name}.svg);
-    @if($size){
-        background-size: $size;
-    }
-    .no-svg &{
-        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+		background-image: url(#{$image-path}/#{$name}.svg);
+		@if($size){
+				background-size: $size;
+		}
+		.no-svg &{
+				background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
 
-        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
-        }
-    }
+				@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+					background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+				}
+		}
 }
 
 // body {
@@ -71,29 +71,29 @@ $retina-suffix: '@2x';
 // ==============
 
 @mixin keyframes($animation-name) {
-  @-webkit-keyframes $animation-name {
-    @content;
-  }
-  @-moz-keyframes $animation-name {
-    @content;
-  }  
-  @-ms-keyframes $animation-name {
-    @content;
-  }
-  @-o-keyframes $animation-name {
-    @content;
-  }  
-  @keyframes $animation-name {
-    @content;
-  }
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	@-moz-keyframes $animation-name {
+		@content;
+	}  
+	@-ms-keyframes $animation-name {
+		@content;
+	}
+	@-o-keyframes $animation-name {
+		@content;
+	}  
+	@keyframes $animation-name {
+		@content;
+	}
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
-  animation: #{$str};      
+	-webkit-animation: #{$str};
+	-moz-animation: #{$str};
+	-ms-animation: #{$str};
+	-o-animation: #{$str};
+	animation: #{$str};      
 }
 
 // @include keyframes(slide-down) {
@@ -111,11 +111,11 @@ $retina-suffix: '@2x';
 // =====================
 
 @mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
 }
 
 // a {
@@ -129,9 +129,9 @@ $retina-suffix: '@2x';
 // ===================
 
 @mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
 }
 
 // .faded-text {
@@ -175,12 +175,14 @@ $retina-suffix: '@2x';
 	margin-right: auto;
 }
 
-@mixin link($color:#2980b9,$hover:0.8){
+@mixin link($color:#2980b9,$hover:lighten){
 	a{
 		color: $color;
 		&:hover{
-			@if $hover == 0.8 {
+			@if $hover == lighten {
 				color: lighten($color,20%);
+			} @else if $hover == darken {
+				color: darken($color,20%);
 			} @else {
 				color: $hover;
 			}
