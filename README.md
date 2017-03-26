@@ -1,6 +1,8 @@
 ysass
 =====
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yujiangshui/ysass.svg)](https://greenkeeper.io/)
+
 基于 Sass 和 Grunt 的简单高效的前端页面重构项目结构。特别适合开发类似 WordPress 主题的项目。
 
 **目标**：提供一个合理的项目结构以及实用工具，简化重构项目流程，方便前端重构项目开发。让前端拿到需求后，马上开始编码。
